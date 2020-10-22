@@ -29,7 +29,7 @@
                 <input type="number" style="border-radius: 5px;" id="origAmt" placeholder="Enter Original Amount"
                     onClick="this.select();">
 
-                <input list="browsers" name="browser" id="gstAmt" placeholder="Enter GST%" onClick="this.select();">
+                <input list="browsers" name="browser" id="gstAmt" placeholder="Enter GST%" onClick="this.select();" type="number">
                 <datalist id="browsers">
 
                     <option value="0.25">
@@ -82,7 +82,7 @@
                     <option value="18">
                     <option value="28">
                 </datalist>
-                <input type="button" value="Remove Gst" onclick="calculate1()">
+                <input type="button" value="Remove Gst" class="btn btn-outline-secondary" onclick="calculate1()">
 
             </div>
 
