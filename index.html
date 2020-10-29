@@ -7,28 +7,372 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description"
         content="This is a GST calculator. Inside This you Can Add or Remove GST and There Is a Magic Suprise Inside This" />
-    <script src="script.js"></script>
+    <script>
+        function calculate() {
+            var a = document.getElementById('origAmt').value;
+            var b = document.getElementById('gstAmt').value;
+            var get = (a * b) / 100;
+            var geta = +(a) + +(get);
+            document.getElementById("demo").innerHTML = a;
+            document.getElementById("demo1").innerHTML = get;
+            document.getElementById("demo2").innerHTML = geta;
+        }
+
+        function calculate1() {
+            var a1 = document.getElementById('origAmt1').value;
+            var b1 = document.getElementById('gstAmt1').value;
+            var get1 = a1 * (100 / (100 + (+b1)));
+            var geta1 = a1 - get1;
+            document.getElementById("total1").innerHTML = a1;
+            document.getElementById("total2").innerHTML = get1;
+            document.getElementById("total3").innerHTML = geta1;
+        }
+
+        function MyCal(ls_from) {
+            var ld_pri = document.getElementById("input_pri").value;
+            var ld_per = document.getElementById("input_per").value;
+            var ld_amt = document.getElementById("input_gst").value;
+
+            if (ls_from == 'A') {
+                ld_pri = (+(ld_amt) * 100) / +(ld_per);
+                document.getElementById("input_pri").value = ld_pri;
+            }
+            else if (ls_from == 'B') {
+                ld_per = (+(ld_amt) * 100) / +(ld_pri);
+                document.getElementById("input_per").value = ld_per;
+            }
+            else if (ls_from == 'C') {
+                ld_amt = (+(ld_pri) * +(ld_per) / 100);
+                document.getElementById("input_gst").value = ld_amt;
+            }
+        }
+
+    </script>
 
     <link rel="stylesheet" href="style.css">
-   
     <script data-ad-client="ca-pub-9692541206658421" async
         src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <meta name="google-site-verification" content="AUShElML1jxTIqEhj_IgZtMGBI656aaOzyO285M7mNY" />
-
 </head>
 
+<style>
+    :root {
+        --secondary: #6c757d;
+        --light: #f8f9fa;
+        --dark: #343a40;
+
+
+    }
+
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
+
+    html {
+        font-family: sans-serif;
+        line-height: 1.15;
+        -webkit-text-size-adjust: 100%;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+    }
+
+    body {
+        margin: 0;
+        font-family: "Segoe UI", "Noto Color Emoji";
+
+        font-weight: 400;
+        line-height: 1.5;
+        color: #212529;
+        text-align: left;
+        background-color: #fff;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        margin-top: 0;
+        margin-bottom: 0.5rem;
+    }
+
+    p {
+        margin-top: 0;
+        margin-bottom: 1rem;
+    }
+
+    a {
+        color: #007bff;
+        text-decoration: none;
+        background-color: transparent;
+    }
+
+    a:hover {
+        color: #0056b3;
+        text-decoration: underline;
+
+        font-size: 1em;
+        
+    }
+
+    img {
+        vertical-align: middle;
+        border-style: none;
+
+    }
+
+    input,
+    button,
+    select,
+    optgroup,
+    textarea {
+        margin: 0;
+        font-family: inherit;
+        font-size: inherit;
+        line-height: inherit;
+
+    }
+
+    button,
+    select {
+        text-transform: none;
+    }
+
+    [role="button"] {
+        cursor: pointer;
+    }
+
+    select {
+        word-wrap: normal;
+    }
+
+    input[type="radio"],
+    input[type="checkbox"] {
+        box-sizing: border-box;
+        padding: 0;
+    }
+
+    textarea {
+        overflow: auto;
+        resize: vertical;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    .h1,
+    .h2,
+    .h3,
+    .h4,
+    .h5,
+    .h6 {
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+        line-height: 1.2;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    .h1,
+    .h2,
+    .h3,
+    .h4,
+    .h5,
+    .h6 {
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+        line-height: 1.2;
+    }
+
+    .lead {
+        font-size: 1.25rem;
+        font-weight: 300;
+    }
+
+    button,
+    [type="button"],
+    [type="reset"],
+    [type="submit"] {
+        -webkit-appearance: button;
+    }
+
+    .jumbotron {
+        padding: 2rem 1rem;
+        margin-bottom: 2rem;
+        background-color: #e9ecef;
+        border-radius: 0.3rem;
+    }
+
+    @media (min-width: 576px) {
+        .jumbotron {
+            padding: 4rem 2rem;
+        }
+    }
+
+    .display-4 {
+        font-size: 3.5rem;
+        font-weight: 300;
+        line-height: 1.2;
+    }
+
+    .container,
+    .container-fluid,
+    .container-sm,
+    .container-md,
+    .container-lg,
+    .container-xl {
+        width: 100%;
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    @media (min-width: 576px) {
+
+        .container,
+        .container-sm {
+            max-width: 540px;
+        }
+    }
+
+    @media (min-width: 768px) {
+
+        .container,
+        .container-sm,
+        .container-md {
+            max-width: 720px;
+        }
+    }
+
+    @media (min-width: 992px) {
+
+        .container,
+        .container-sm,
+        .container-md,
+        .container-lg {
+            max-width: 960px;
+        }
+    }
+
+    @media (min-width: 1200px) {
+
+        .container,
+        .container-sm,
+        .container-md,
+        .container-lg,
+        .container-xl {
+            max-width: 1140px;
+        }
+    }
+
+    .btn {
+        display: inline-block;
+        font-weight: 400;
+        color: #212529;
+        text-align: center;
+        vertical-align: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        background-color: transparent;
+        border: 1px solid transparent;
+        padding: 0.375rem 0.75rem;
+        font-size: 1rem;
+        line-height: 1.5;
+        border-radius: 0.25rem;
+        transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .btn {
+            transition: none;
+        }
+    }
+
+    .btn-outline-secondary {
+        color: #6c757d;
+        border-color: #6c757d;
+    }
+
+    .btn-outline-secondary:hover {
+        color: #fff;
+        background-color: #6c757d;
+        border-color: #6c757d;
+    }
+
+    .lead {
+        font-size: 1.25rem;
+        font-weight: 300;
+    }
+
+    .alert-dark {
+        color: #1b1e21;
+        background-color: #d6d8d9;
+        border-color: #c6c8ca;
+    }
+
+    .alert-dark hr {
+        border-top-color: #b9bbbe;
+    }
+
+    .alert-dark .alert-link {
+        color: #040505;
+    }
+
+    .alert {
+        position: relative;
+        padding: 0.75rem 1.25rem;
+        margin-bottom: 1rem;
+        border: 1px solid transparent;
+        border-radius: 0.25rem;
+    }
+
+    .container {
+        width: 100%;
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .row {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        margin-right: -15px;
+        margin-left: -15px;
+    }
+
+    .alert-link {
+        font-weight: 700;
+    }
+</style>
 
 <body>
+
     <div class="jumbotron">
-        <h1 style="text-align: center;" class="display-4">WeLcOme To GST CaLcuLAtor </h1>
+        <h1 class="display-4">WeLcOme To GST CaLcuLAtor </h1>
 
     </div>
     <div class="jumbotron ">
         <div class="container">
 
             <h1 class="display-4">Add GST</h1>
-            <div class="row">
-                
+            <div>
+
                 <input type="number" style="border-radius: 5px;" id="origAmt" placeholder="Enter Original Amount"
                     onClick="this.select();">
 
@@ -47,14 +391,16 @@
             </div>
 
 
-            <div> Net Amount <p style="border: 3px solid ; border-radius: 5px; " id="demo">0</p>
+            <div> Net Amount <p style="border: 3px solid ; border-radius: 5px; " id="demo"></p>
             </div>
 
 
-            <div> GST amount<p style="border: 3px solid ; border-radius: 5px; " id="demo1">0</p>
+            <div> GST amount<p style="border: 3px solid ; border-radius: 5px; " id="demo1">
+                </p>
             </div>
 
-            <div> Total Amount<p style="border: 3px solid ; border-radius: 5px; " id="demo2">0</p>
+            <div> Total Amount<p style="border: 3px solid ; border-radius: 5px; " id="demo2">
+                </p>
             </div>
         </div>
 
@@ -69,8 +415,8 @@
     <div class="jumbotron">
         <div class="container">
             <h1 class="display-4">Remove GST</h1>
-            <div class="row">
-               
+            <div>
+
                 <input type="number" style="border-radius: 5px;" id="origAmt1" placeholder="Enter Original Amount"
                     onClick="this.select();">
                 <input type="number" style="border-radius: 5px;" id="gstAmt1" placeholder="Enter GST%" list="browsers"
@@ -88,13 +434,13 @@
 
             </div>
 
-            <div>Net Amount <p style="border: 3px solid ; border-radius: 5px; " id="total1">0</p>
+            <div>Net Amount <p style="border: 3px solid ; border-radius: 5px; " id="total1"></p>
             </div>
 
-            <div>GST amount <p style="border: 3px solid ; border-radius: 5px; " id="total2">0</p>
+            <div>GST amount <p style="border: 3px solid ; border-radius: 5px; " id="total2"></p>
             </div>
 
-            <div>Total Amount <p style="border: 3px solid ; border-radius: 5px; " id="total3">0</p>
+            <div>Total Amount <p style="border: 3px solid ; border-radius: 5px; " id="total3"></p>
             </div>
 
         </div>
@@ -112,7 +458,7 @@
 
 
             <div>
-                
+
                 <div class="row">
                     <input type="number" style="border: 2px solid ; border-radius: 5px; text-align:right "
                         id="input_pri" onClick="this.select();" placeholder="Principal Amount">
@@ -136,11 +482,11 @@
         </div>
     </div>
     <div class="alert alert-dark" role="alert">
-        Created By Aditya Nigam. Contant us on <a href="mailto:nigamaditya.cmu@gmail.com"
-            class="alert-link">nigamaditya.cmu@gmail.com</a>.
+        This Calculator is Created By Aditya Nigam. Contant and give us feedback on <a
+            href="mailto:nigamaditya.cmu@gmail.com" class="alert-link">nigamaditya.cmu@gmail.com</a>.
     </div>
-    <a href="https://www.instagram.com/aditya_nigamcodz_gamerz/" class="alert alert-dark" width="100%"><img src="instaicon.png"
-            width="20px" height="20px">Follow Us On Instagram</a>
+    <a href="https://www.instagram.com/aditya_nigamcodz_gamerz/" class="alert alert-dark" width="100%"><img
+            src="instaicon.png" width="20px" height="20px">Follow me on Instagram</a>
 
 </body>
 
